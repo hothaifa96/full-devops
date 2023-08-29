@@ -14,9 +14,7 @@ pipeline{
         }
         stage("Test"){
             agent{
-                docker{
-                    image:"${env.IMAGE_NAME}"
-                }
+                docker "${env.IMAGE_NAME}"
             }
             steps{
                 sh "pytest -m ./test/test.py"
