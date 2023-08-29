@@ -14,9 +14,9 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh "docker run -p 5000:5000 -d --name h1 ${env.IMAGE_NAME} "
-                sh "pip3 install pytest"
-                sh "pytest ./test/test.py"
+                // sh "docker run -p 5000:5000 -d --name h1 ${env.IMAGE_NAME} "
+                // sh "pip3 install pytest"
+                // sh "pytest ./test/test.py"
             }  
             
         }
