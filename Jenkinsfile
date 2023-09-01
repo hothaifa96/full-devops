@@ -23,7 +23,7 @@ pipeline{
         stage("publishing the image"){
             steps{
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',credentialsId: "aws-cre"]]) {
-                    sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin 514080426196.dkr.ecr.us-east-1.amazonaws.com'
+                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 514080426196.dkr.ecr.us-east-1.amazonaws.com'
                     sh "docker tag ${env.IMAGE_NAME} 514080426196.dkr.ecr.us-east-1.amazonaws.com/demo1:latest"
                     sh "docker push 514080426196.dkr.ecr.us-east-1.amazonaws.com/demo1:latest"
                 }
